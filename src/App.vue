@@ -11,14 +11,19 @@ export default {
 
 <template>
   <h1 class="text-center">Todo Web</h1>
-  <div class="row"> <!-- row che racchiude l'inserimento della task-->
-    <h1 >Add a new Task</h1>
-    <div class="row"> <!-- row dei 3 elementi-->
+> <!-- row che racchiude l'inserimento della task-->
+    
+    <div class="row offset-lg-2"> <!-- row dei 3 elementi-->
+      <h1 >Add a new Task</h1>
 
-      <div class="col-lg-6"> <!-- col Title-->
 
-        <input class="w-100" type="text" placeholder="Task title">
+      
+      <div class="col-lg-5 "> <!-- col Title-->
+
+        <input class="w-100 " type="text" placeholder="Task title" aria-label="Text input with dropdown button">
       </div>
+
+
 
       <div class="col-3"> <!-- col Category-->
         <select  class="form-select" name="category" id="category">
@@ -30,31 +35,45 @@ export default {
           <option value="hobby">Hobby</option>
         </select>
       </div>
-      <div class="col-3"> <!-- col Date-->
-        <input type="date" name="task-date" id="task-date">
+      <div class="col-2"> <!-- col Date-->
+        <input  class="w-100" type="date" name="task-date" id="task-date">
       </div>
     </div>
+  
 
-
-    <div class="row">   <!-- row per TXT e button-->
-      <textarea class="w-100" rows="2" placeholder="Add a  description"></textarea>
+    <div class="row offset-lg-2">   <!-- row per TXT e button-->
+      <div class="col-10">
+        <textarea class="w-100" rows="2" placeholder="Add a  description"></textarea>
       <input class="btn btn-primary w-100" type="button" value="Add Task">
+      </div>
+      
+      <hr>
     </div>
+
+
+  <div class="row offset-lg-2"> 
     <h3>List of Task</h3>
-  </div>
 
-  <div class="row"> 
+    <div class="col-1 d-flex justify-content-center"> <input class="" type="checkbox" ></div>
 
-    <div class="col"><!-- COL DEL CHECKBOX--></div>
+    <div class="col-8"><!-- COL PER TESTO E CATEGORIA-->
 
-    <div class="col"><!-- COL PER TESTO E CATEGORIA-->
+      <div class="row"><p>TITOLO E CATEGORIA</p></div>
 
-      <div class="row"><!-- row per titolo e categoria--></div>
-
-      <div class="row"><!--ROW PER TESTO TASK--></div>
+      <div class="row"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lorem urna, hendrerit quis blandit
+          porttitor,
+          feugiat id nisl. Duis vitae mi sed nisl aliquam pellentesque. Nulla interdum, turpis vel fringilla eleifend,
+          metus mauris rhoncus ipsum, sit
+          amet venenatis magna lectus ut urna. Curabitur eget viverra magna. Suspendisse tincidunt turpis id lectus
+          tempor, vel vestibulum magna iaculis.
+          Morbi quis vestibulum ante. Fusce nec orc</p></div>
 
     </div>
-    <div class="col"><!--COL PER TASTI MODIFICA E ELIMINA--></div>
+    <div class="col-1 d-grid gap-2">
+      <button type="button" class="btn btn-primary ">MODIFICA</button>
+
+      <button type="button" class="btn btn-primary">ELIMINA</button>
+    </div>
 
   </div>
 
