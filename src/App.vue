@@ -17,16 +17,16 @@ export default {
       <h1 >Add a new Task</h1>
 
 
-      
+      <form class="d-flex">
       <div class="col-lg-5 "> <!-- col Title-->
-
-        <input class="w-100 " type="text" placeholder="Task title" aria-label="Text input with dropdown button">
+       
+        <input class="w-100 form-control" type="text" placeholder="Task title" aria-label="Text input with dropdown button">
       </div>
 
 
 
       <div class="col-3"> <!-- col Category-->
-        <select  class="form-select" name="category" id="category">
+        <select  class="form-control" name="category" id="category">
 
           <option value="business">Business</option>
 
@@ -36,22 +36,27 @@ export default {
         </select>
       </div>
       <div class="col-2"> <!-- col Date-->
-        <input  class="w-100" type="date" name="task-date" id="task-date">
+        <input  class="w-100 form-control" type="date" name="task-date" id="task-date">
       </div>
+      </form>
     </div>
   
 
     <div class="row offset-lg-2">   <!-- row per TXT e button-->
       <div class="col-10">
-        <textarea class="w-100" rows="2" placeholder="Add a  description"></textarea>
+        <textarea class="w-100 form-control" rows="2" placeholder="Add a  description"></textarea>
       <input class="btn btn-primary w-100" type="button" value="Add Task">
+      <hr>
       </div>
       
-      <hr>
+      
     </div>
 
 
-  <div class="row offset-lg-2"> 
+    
+
+  <div class="row  offset-lg-2 "> 
+   
     <h3>List of Task</h3>
 
     <div class="col-1 d-flex justify-content-center"> <input class="" type="checkbox" ></div>
@@ -70,9 +75,9 @@ export default {
 
     </div>
     <div class="col-1 d-grid gap-2">
-      <button type="button" class="btn btn-primary ">MODIFICA</button>
+      <button type="button" class="btn btn-secondary ">MODIFICA</button>
 
-      <button type="button" class="btn btn-primary">ELIMINA</button>
+      <button type="button" class="btn btn-danger">ELIMINA</button>
     </div>
 
   </div>
