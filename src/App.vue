@@ -1,32 +1,52 @@
 
 <script>
 
+
 export default {
   name: 'App',
-  components: {
 
+  data() {
+    return {
+      formValues: {
+        title: '',
+        category: '',
+        date: '',
+        description: '',
+      },
+    }
+  },
+  components: {
+  },
+
+  methods: {
+    submitForm() {
+      console.log('Form submitted', this.formValues)}
+  },
+  mounted() {
+    console.log('Component mounted.')
   }
 }
+
 </script>
 
 <template>
-  <h1 class="text-center">Todo Web</h1>
-> <!-- row che racchiude l'inserimento della task-->
-    
-    <div class="row offset-lg-2"> <!-- row dei 3 elementi-->
-      <h1 >Add a new Task</h1>
+  <div class="container">
+    <h1 class="text-center">Todo Web</h1>
+    <!-- row che racchiude l'inserimento della task-->
+    <h2>Add a new Task</h2>
+    <form @submit.prevent="submitForm">
 
+    <div class="row "> <!-- row dei 3 elementi-->
 
-      <form class="d-flex">
-      <div class="col-lg-5 "> <!-- col Title-->
-       
-        <input class="w-100 form-control" type="text" placeholder="Task title" aria-label="Text input with dropdown button">
+      <!-- col Title-->
+      <div class="col-lg-6 mt-2">
+
+        <input v-model.trim.lazy="formValues.title" class=" form-control" type="text" placeholder="Task title">
       </div>
 
-
-
-      <div class="col-3"> <!-- col Category-->
-        <select  class="form-control" name="category" id="category">
+      <!-- col Category-->
+      <div class="col-lg-3 mt-2">
+        <select v-model.lazy="formValues.category" class="form-control" name="category" id="category" >
 
           <option value="business">Business</option>
 
@@ -35,53 +55,49 @@ export default {
           <option value="hobby">Hobby</option>
         </select>
       </div>
-      <div class="col-2"> <!-- col Date-->
-        <input  class="w-100 form-control" type="date" name="task-date" id="task-date">
+      <!-- col Date-->
+      <div class="col-lg-3 mt-2"> 
+        <input v-model.lazy="formValues.date" class="form-control" type="date" name="task-date" id="task-date">
       </div>
-      </form>
-    </div>
-  
 
-    <div class="row offset-lg-2">   <!-- row per TXT e button-->
-      <div class="col-10">
-        <textarea class="w-100 form-control" rows="2" placeholder="Add a  description"></textarea>
-      <input class="btn btn-primary w-100" type="button" value="Add Task">
-      <hr>
+
+      <div class="col-lg-12 mt-2">
+        <textarea v-model.lazy="formValues.description" class=" form-control" rows="2" placeholder="Add a  description"></textarea>
       </div>
-      
-      
     </div>
 
+    <button @click="submitForm" class="btn btn-primary w-100 py-4 mt-2" type="button" >Add a task</button>
 
-    
+  </form>
 
-  <div class="row  offset-lg-2 "> 
-   
+    <hr>
+
     <h3>List of Task</h3>
 
-    <div class="col-1 d-flex justify-content-center"> <input class="" type="checkbox" ></div>
 
-    <div class="col-8"><!-- COL PER TESTO E CATEGORIA-->
+    <div class="row">
 
-      <div class="row"><p>TITOLO E CATEGORIA</p></div>
 
-      <div class="row"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lorem urna, hendrerit quis blandit
-          porttitor,
-          feugiat id nisl. Duis vitae mi sed nisl aliquam pellentesque. Nulla interdum, turpis vel fringilla eleifend,
-          metus mauris rhoncus ipsum, sit
-          amet venenatis magna lectus ut urna. Curabitur eget viverra magna. Suspendisse tincidunt turpis id lectus
-          tempor, vel vestibulum magna iaculis.
-          Morbi quis vestibulum ante. Fusce nec orc</p></div>
+      <div class="col-1 d-flex justify-content-center"> <input class="" type="checkbox"></div>
+<!-- COL PER TESTO E CATEGORIA-->
+      <div class="col-9">
+
+          <p>TITOLO E CATEGORIA</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lorem urna, hendrerit quis blandit
+            porttitor,
+           
+            Morbi quis vestibulum ante. Fusce nec orc</p>
+
+      </div>
+      <div class="col-2 ">
+        <button type="button" class="w-100 btn btn-secondary mb-2">MODIFICA</button>
+
+        <button type="button" class="w-100 btn btn-danger">ELIMINA</button>
+      </div>
 
     </div>
-    <div class="col-1 d-grid gap-2">
-      <button type="button" class="btn btn-secondary ">MODIFICA</button>
-
-      <button type="button" class="btn btn-danger">ELIMINA</button>
-    </div>
-
   </div>
-
 </template>
 
 
@@ -89,85 +105,12 @@ export default {
 
 
 
+<!-- controllo form - dati inseriti
+  <div>
 
+    <pre>
+      {{ JSON.stringify((formValues), null, 2)}}
 
-<!--
-<template>
-  <div class="container">
-    
-    <div class="row ">
-      
-
-      <div class="col-12 ">
-
-        
-
-
-         div per input e select 
-
-        
-
-
-      </div>
-    </div>
-
-    <br>
-
-    visualizzazione task
-    <h3>List of Task</h3>
-    <div class="row">
-      <div class="col-12 d-flex ">
-
-
-          <div class="d-flex align-items-center" style="width: 20%; ">
-            <input type="checkbox" >
-
-          </div>
-
-
-          <div class="">
-
-            <h4 class="">Categoria </h4>
-            <h3>titolo</h3>
-            <p> 'DATA' - lLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lorem urna, hendrerit quis blandit
-            porttitor, orem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lorem urna, hendre orem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lorem urna, hendre
-            orc</p>
-          </div>
-
-        
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-8">
-
-        <input type="checkbox">
-        <span>[Categoria] <br>Task 1</span>
-        <p> 'DATA' - lLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lorem urna, hendrerit quis blandit
-          porttitor,
-          feugiat id nisl. Duis vitae mi sed nisl aliquam pellentesque. Nulla interdum, turpis vel fringilla eleifend,
-          metus mauris rhoncus ipsum, sit
-          amet venenatis magna lectus ut urna. Curabitur eget viverra magna. Suspendisse tincidunt turpis id lectus
-          tempor, vel vestibulum magna iaculis.
-          Morbi quis vestibulum ante. Fusce nec orc</p>
-
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-8">
-        <h3>List of Task</h3>
-        <input type="checkbox">
-        <span>[Categoria] <br>Task 1</span>
-        <p> 'DATA' - lLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lorem urna, hendrerit quis blandit
-          porttitor,
-          feugiat id nisl. Duis vitae mi sed nisl aliquam pellentesque. Nulla interdum, turpis vel fringilla eleifend,
-          metus mauris rhoncus ipsum, sit
-          amet venenatis magna lectus ut urna. Curabitur eget viverra magna. Suspendisse tincidunt turpis id lectus
-          tempor, vel vestibulum magna iaculis.
-          Morbi quis vestibulum ante. Fusce nec orc</p>
-
-      </div>
-    </div>
+    </pre>
   </div>
-</template> -->
-
-
+-->
