@@ -26,8 +26,8 @@ export default {
 </script>
 
 <template>
-  <AddTask></AddTask>
-  <ListTask>  </ListTask>
+  <AddTask/>
+  <ListTask/>
 </template>
 
 
